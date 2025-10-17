@@ -9,4 +9,22 @@ document.addEventListener("DOMContentLoaded", () => {
   squares.forEach((square) => {
     square.classList.add("square");
   });
+
+  //Keeping Track of the current player
+  let currentPlayer = "X";
+
+  //Function to handle a square being clicked
+  squares.forEach((square) => {
+    square.addEventListener("click", () => {
+      //Only allow marking if the square is empty
+      if (square.textContent === "") {
+        //Mark the square with the current player's symbol
+        square.textContent = currentPlayer;
+        square.classList.add(currentPlayer);
+
+        //Switch to the other player
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+      }
+    });
+  });
 });
