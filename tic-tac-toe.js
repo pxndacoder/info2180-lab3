@@ -21,10 +21,18 @@ document.addEventListener("DOMContentLoaded", () => {
         //Mark the square with the current player's symbol
         square.textContent = currentPlayer;
         square.classList.add(currentPlayer);
-
         //Switch to the other player
         currentPlayer = currentPlayer === "X" ? "O" : "X";
       }
+    });
+
+    //Hover effect to highlight squares
+    square.addEventListener("mouseover", () => {
+      square.classList.add("hover");
+    });
+
+    square.addEventListener("mouseout", () => {
+      square.classList.remove("hover");
     });
   });
 });
